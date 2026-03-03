@@ -470,27 +470,36 @@
   .homepage-container {
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
   }
 
   .homepage-content {
     padding-top: 0;
+    padding-left: 0;
     order: 2;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
   }
 
   .homepage-inner {
     display: flex;
     flex-direction: column;
-    padding: 1rem;
+    padding: 1rem 1rem 2rem 1rem;
     gap: 0;
-    height: 100%;
+    flex: 1;
     min-height: 0;
+    justify-content: flex-start;
   }
 
   .logo {
     position: relative;
     left: 0;
     top: 0;
-    padding: 0 0 0 1rem;
+    padding: 0;
+    margin-left: 13px;
     transform: rotate(0deg);
     gap: 5px;
     animation: mobileSlideDown 0.9s ease-in-out;
@@ -498,13 +507,13 @@
   }
 
   .logoname {
-    font-size: 3rem;
+    font-size: clamp(2.2rem, 8vw, 3rem);
     margin: 0;
     padding: 0;
   }
 
   .subtitle {
-    font-size: 1.2rem;
+    font-size: clamp(0.9rem, 3vw, 1.2rem);
     margin: 0;
     padding: 0;
   }
@@ -517,22 +526,26 @@
   }
 
   .contactbtn {
-    padding: 10px 25px;
-    font-size: 0.8rem;
+    padding: clamp(6px, 2vw, 10px) clamp(14px, 5vw, 25px);
+    font-size: clamp(0.65rem, 2.5vw, 0.8rem);
     animation: mobileSlideDown 0.8s ease-in-out;
   }
 
   .main-home-content {
     order: 2;
     text-align: left;
-    margin-top: 1rem;
+    margin-top: clamp(0.5rem, 3vh, 1.5rem);
     padding-left: 0;
+    max-width: 100%;
+    overflow: hidden;
   }
 
   .head1, .head, .head2 {
-    font-size: 3rem;
+    font-size: clamp(2rem, 9vw, 3rem);
     margin-top: 0;
     margin-bottom: 0.05em;
+    word-break: break-word;
+    overflow-wrap: break-word;
     animation: mobileSlideUpFade 1s ease-in-out;
   }
 
@@ -542,68 +555,90 @@
   }
 
   .head-para {
-    font-size: 0.9rem;
+    font-size: clamp(0.8rem, 3.5vw, 0.9rem);
     top: 0;
     left: 0;
     margin-top: 1.5rem;
+    margin-bottom: 0;
     margin-left: 0;
     padding-left: 0;
     text-align: left;
+    max-width: 100%;
     animation: mobileSlideUpFade 1.2s ease-in-out;
   }
 
   .fallowsection {
     order: 3;
-    margin-top: 2rem;
+    margin-top: auto;
+    padding-top: clamp(1rem, 4vh, 3rem);
     padding-left: 0;
+    margin-left: 0;
+    position: relative;
+    align-self: flex-start;
+    width: 100%;
+    text-align: left;
   }
 
   .fallowtitle {
-    font-size: 1.4rem;
+    font-size: clamp(1.1rem, 4vw, 1.4rem);
+    position: relative;
     top: 0;
     left: 0;
-    max-width: 420px;
+    max-width: 100%;
+    margin-bottom: 0.5rem;
+    margin-top: 0;
+    text-align: left;
     animation: mobileSlideLeftIn 1s ease-in-out;
   }
 
   .fallowpara {
-    font-size: 0.8rem;
+    font-size: clamp(0.7rem, 3vw, 0.8rem);
+    position: relative;
+    top: 0;
     left: 0;
-    margin-top: 60px;
-    max-width: 420px;
+    margin-top: 0.75rem;
+    max-width: 100%;
+    text-align: left;
     animation: mobileSlideLeftIn 1s ease-in-out;
   }
 
   .icons {
     gap: 15px;
-    top: -50px;
+    position: relative;
+    top: 0;
     left: 0;
+    margin-top: 0;
+    justify-content: flex-start;
     animation: mobileSlideLeftIn 1s ease-in-out;
   }
 
   .shopnowbtn {
-    width: min(760px, 98%);
+    width: min(760px, 96%);
     padding: 8px 12px;
     margin-left: 0;
+    margin-right: auto;
+    margin-top: 1rem;
     border-radius: 9999px;
+    box-sizing: border-box;
     animation: mobileBarExpand 1.1s ease-out forwards;
   }
 
   .shopbtn {
-    height: 40px;
-    width: 40px;
+    height: clamp(32px, 10vw, 40px);
+    width: clamp(32px, 10vw, 40px);
+    min-width: 32px;
     border-radius: 50%;
     animation: mobileArrowMove 1.1s ease-out forwards;
   }
 
   .shopnowtext {
     margin-left: 0;
-    font-size: 1rem;
+    font-size: clamp(0.85rem, 3.5vw, 1rem);
   }
 }
 
-/* Legacy 768px block – align with new layout */
-@media (max-width: 768px) {
+/* Legacy 768px block – align with new layout (tablet only; avoid overriding mobile) */
+@media (min-width: 481px) and (max-width: 768px) {
   .homepage-content {
     padding-top: 2rem;
   }
