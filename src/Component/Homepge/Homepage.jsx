@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import BackgroundVideoComponent from '../Backgroundvideo/BackgroundVideoComponent';
 import MobBackgroundVideoComponent from '../Mobilebackground/Mobilebackground';
 import { FaInstagram, FaLinkedinIn } from 'react-icons/fa';
@@ -66,10 +67,10 @@ const Homepage = () => {
               <FaInstagram size={20} />
               <FaXTwitter size={20} />
             </div>
-            <div className="shopnowbtn">
+            <Link to="/signup" className="shopnowbtn">
               <p className="shopnowtext">Shop Now</p>
-              <button type="button" className="shopbtn"><FaArrowRightLong size={22} /></button>
-            </div>
+              <span className="shopbtn" aria-hidden><FaArrowRightLong size={22} /></span>
+            </Link>
           </div>
         </div>
       </div>
