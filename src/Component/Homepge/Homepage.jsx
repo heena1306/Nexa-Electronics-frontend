@@ -67,7 +67,7 @@ const Homepage = () => {
               <FaInstagram size={20} />
               <FaXTwitter size={20} />
             </div>
-            <Link to="/signup" className="shopnowbtn">
+            <Link to="/login" className="shopnowbtn">
               <p className="shopnowtext">Shop Now</p>
               <span className="shopbtn" aria-hidden><FaArrowRightLong size={22} /></span>
             </Link>

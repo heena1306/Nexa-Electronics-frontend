@@ -1,0 +1,424 @@
+/* LuxeMart auth - white and orange theme, two columns */
+.luxemart-auth {
+  min-height: 100vh;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: #1a1a1a;
+  box-sizing: border-box;
+}
+
+/* Left: promotional - soft cream to muted peach gradient */
+.luxemart-auth-left {
+  background: linear-gradient(180deg, #FFFBF7 0%, #FFEDE0 100%);
+  padding: 2.5rem 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+.luxemart-auth-left::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(200, 120, 60, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(200, 120, 60, 0.04) 1px, transparent 1px);
+  background-size: 24px 24px;
+  pointer-events: none;
+}
+
+.luxemart-logo-main {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+.luxemart-logo-icon-wrap {
+  width: 48px;
+  height: 48px;
+  background: #3d3d3d;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+}
+
+.luxemart-logo-icon {
+  width: 26px;
+  height: 26px;
+  color: #fff;
+}
+
+.luxemart-logo-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #1a1a1a;
+}
+
+.luxemart-logo-sub {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: #555;
+  margin-top: 2px;
+}
+
+.luxemart-hero {
+  position: relative;
+  z-index: 1;
+  margin: 3rem 0;
+}
+
+.luxemart-hero-lines {
+  width: 40px;
+  height: 4px;
+  background: #c4a574;
+  border-radius: 2px;
+  margin-bottom: 1.25rem;
+}
+
+.luxemart-hero-title {
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.15;
+  color: #1a1a1a;
+  font-family: Georgia, 'Times New Roman', serif;
+}
+
+.luxemart-hero-title-accent {
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 700;
+  margin: 0.25rem 0 0 0;
+  line-height: 1.15;
+  color: #1a1a1a;
+  font-family: Georgia, 'Times New Roman', serif;
+}
+
+.luxemart-hero-desc {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.6;
+  margin: 1.25rem 0 0 0;
+  max-width: 420px;
+}
+
+.luxemart-trust {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 1.5rem;
+}
+
+.luxemart-stars {
+  color: #c4a574;
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+}
+
+.luxemart-trust-text {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.luxemart-stats {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  position: relative;
+  z-index: 1;
+  margin-top: auto;
+  padding-top: 2rem;
+}
+
+.luxemart-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.luxemart-stat-value {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #b8862e;
+}
+
+.luxemart-stat-label {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.luxemart-stat-divider {
+  width: 1px;
+  height: 36px;
+  background: rgba(0, 0, 0, 0.12);
+}
+
+/* Right: form panel - bright white */
+.luxemart-auth-right {
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  min-height: 100vh;
+}
+
+.luxemart-form-panel {
+  width: 100%;
+  max-width: 420px;
+  background: #FFFFFF;
+  border-radius: 14px;
+  padding: 2.5rem;
+  border: 1px solid #E8E8E8;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+.luxemart-form-icon {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.luxemart-form-star {
+  width: 24px;
+  height: 24px;
+  color: #d96d00;
+}
+
+.luxemart-form-title {
+  font-size: 1.85rem;
+  font-weight: 700;
+  margin: 0 0 0.35rem 0;
+  color: #1a1a1a;
+  font-family: Georgia, 'Times New Roman', serif;
+}
+
+.luxemart-form-subtitle {
+  font-size: 0.95rem;
+  color: #555;
+  margin: 0 0 1.75rem 0;
+}
+
+.luxemart-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.luxemart-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: #555;
+  margin-bottom: -4px;
+}
+
+.luxemart-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.luxemart-input-icon {
+  position: absolute;
+  left: 14px;
+  color: #888;
+  pointer-events: none;
+}
+
+.luxemart-input {
+  width: 100%;
+  padding: 14px 14px 14px 44px;
+  background: #FAFAFA;
+  border: 1px solid #E8E8E8;
+  border-radius: 8px;
+  color: #1a1a1a;
+  font-size: 0.95rem;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+.luxemart-input::placeholder {
+  color: #999;
+}
+
+.luxemart-input:focus {
+  outline: none;
+  border-color: #ccc;
+  background: #FFFFFF;
+}
+
+.luxemart-input-eye {
+  position: absolute;
+  right: 12px;
+  background: none;
+  border: none;
+  color: #888;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.luxemart-input-eye:hover {
+  color: #555;
+}
+
+.luxemart-options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.luxemart-checkbox-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.luxemart-checkbox {
+  width: 18px;
+  height: 18px;
+  accent-color: #1a1a1a;
+  cursor: pointer;
+}
+
+.luxemart-checkbox-label {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.luxemart-link {
+  color: #d96d00;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+.luxemart-link:hover {
+  color: #b85c00;
+}
+
+.luxemart-btn {
+  width: 100%;
+  padding: 14px 24px;
+  margin-top: 0.5rem;
+  background: #1a1a1a;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.luxemart-btn:hover {
+  opacity: 0.95;
+}
+
+.luxemart-divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1.5rem 0 1.25rem 0;
+}
+
+.luxemart-divider-line {
+  flex: 1;
+  height: 1px;
+  background: #E0E0E0;
+}
+
+.luxemart-divider-text {
+  font-size: 0.75rem;
+  color: #888;
+  letter-spacing: 0.05em;
+}
+
+.luxemart-social {
+  display: flex;
+  gap: 12px;
+}
+
+.luxemart-social-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px;
+  background: #FAFAFA;
+  border: 1px solid #E8E8E8;
+  border-radius: 50%;
+  aspect-ratio: 1;
+  color: #333;
+  font-size: 0.8rem;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.luxemart-social-btn span {
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .luxemart-social-btn {
+    border-radius: 10px;
+    aspect-ratio: auto;
+    padding: 12px 16px;
+  }
+  .luxemart-social-btn span {
+    display: inline;
+  }
+}
+
+.luxemart-social-btn:hover {
+  border-color: #ccc;
+  background: #f5f5f5;
+}
+
+.luxemart-footer {
+  font-size: 0.9rem;
+  color: #555;
+  margin: 1.5rem 0 0 0;
+}
+
+/* Responsive: stack on small screens */
+@media (max-width: 900px) {
+  .luxemart-auth {
+    grid-template-columns: 1fr;
+  }
+
+  .luxemart-auth-left {
+    min-height: 40vh;
+    padding: 2rem;
+  }
+
+  .luxemart-hero {
+    margin: 2rem 0;
+  }
+
+  .luxemart-stats {
+    padding-top: 1.5rem;
+  }
+
+  .luxemart-auth-right {
+    min-height: auto;
+    padding: 2rem 1.5rem;
+  }
+}
