@@ -1,16 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FaEye, FaEyeSlash, FaUser, FaLock, FaGithub, FaApple } from 'react-icons/fa';
-import { FaEnvelope } from 'react-icons/fa6';
+import { FaEye, FaEyeSlash, FaGithub, FaApple } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';
 import './index.css';
-
-const LogoIcon = ({ className }) => (
-  <svg className={className} viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
-    <path d="M20 8C20 8 18 6 14 6C9 6 6 9 6 13C6 16 8 18 12 19C17 20 20 22 20 26C20 28 19 30 16 30C12 30 10 28 10 26" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M12 26C12 28 10 30 6 30C4 30 2 28 2 26C2 22 5 20 10 19C14 18 16 16 16 13C16 9 13 6 8 6C6 6 4 7 4 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-  </svg>
-);
 
 const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -24,8 +16,8 @@ const Signup = () => {
       <div className="auth-card">
         <div className="auth-left">
           <div className="auth-logo">
-            <LogoIcon className="auth-logo-icon" />
-            <span className="auth-logo-text">BrightNest</span>
+            <h1 className="auth-logoname">NEXA</h1>
+            <h2 className="auth-logo-subtitle">ELECTRONICS</h2>
           </div>
           <div className="auth-copy">
             <p className="auth-copy-small">You can easily</p>
@@ -33,6 +25,7 @@ const Signup = () => {
           </div>
         </div>
         <div className="auth-right auth-right-signup">
+          <div className="auth-right-inner">
           <div className="auth-form-header">
             <span className="auth-header-icon" aria-hidden>
               <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -41,33 +34,20 @@ const Signup = () => {
             </span>
             <h1 className="auth-form-title">Create an account</h1>
           </div>
-          <p className="auth-form-subtitle">Access your tasks, notes, and projects anytime, anywhere - and keep everything flowing in one place.</p>
+          <p className="auth-form-subtitle">Access your tasks, notes, and projects anytime, anywhere – and keep everything flowing in one place.</p>
           <form className="auth-form" onSubmit={handleSubmit}>
-            <label className="auth-label" htmlFor="signup-username">USERNAME</label>
-            <div className="auth-input-wrap">
-              <FaUser className="auth-input-icon" size={18} />
-              <input
-                id="signup-username"
-                type="text"
-                className="auth-input"
-                placeholder="choose_username"
-                autoComplete="username"
-              />
-            </div>
-            <label className="auth-label" htmlFor="signup-email">EMAIL ADDRESS</label>
-            <div className="auth-input-wrap">
-              <FaEnvelope className="auth-input-icon" size={18} />
+            <label className="auth-label" htmlFor="signup-email">Your email</label>
+            <div className="auth-input-wrap auth-input-wrap--no-icon">
               <input
                 id="signup-email"
                 type="email"
                 className="auth-input"
-                placeholder="you@example.com"
+                placeholder="natalia.brak@knmstudio.com"
                 autoComplete="email"
               />
             </div>
-            <label className="auth-label" htmlFor="signup-password">PASSWORD</label>
-            <div className="auth-input-wrap">
-              <FaLock className="auth-input-icon" size={18} />
+            <label className="auth-label" htmlFor="signup-password">Create password</label>
+            <div className="auth-input-wrap auth-input-wrap--no-icon">
               <input
                 id="signup-password"
                 type={showPassword ? 'text' : 'password'}
@@ -84,33 +64,28 @@ const Signup = () => {
                 {showPassword ? <FaEyeSlash size={18} /> : <FaEye size={18} />}
               </button>
             </div>
-            <button type="submit" className="auth-btn">CREATE ACCOUNT</button>
+            <button type="submit" className="auth-btn">Create account</button>
           </form>
-          <p className="auth-terms">
-            By signing up, you agree to our <Link to="#" className="auth-link">Terms & Privacy Policy</Link>
-          </p>
           <div className="auth-divider">
             <span className="auth-divider-line" />
             <span className="auth-divider-text">or continue with</span>
             <span className="auth-divider-line" />
           </div>
           <div className="auth-social">
-            <button type="button" className="auth-social-btn">
-              <FcGoogle size={22} />
-              <span>Google</span>
+            <button type="button" className="auth-social-btn" aria-label="Continue with Google">
+              <span className="auth-social-btn-icon"><FcGoogle size={20} /></span>
             </button>
-            <button type="button" className="auth-social-btn">
-              <FaGithub size={22} />
-              <span>GitHub</span>
+            <button type="button" className="auth-social-btn" aria-label="Continue with GitHub">
+              <span className="auth-social-btn-icon"><FaGithub size={20} /></span>
             </button>
-            <button type="button" className="auth-social-btn">
-              <FaApple size={22} />
-              <span>Apple</span>
+            <button type="button" className="auth-social-btn" aria-label="Continue with Apple">
+              <span className="auth-social-btn-icon"><FaApple size={20} /></span>
             </button>
           </div>
           <p className="auth-footer">
-            Already have an account? <Link to="/login" className="auth-link">Login</Link>
+            Already have an account? <Link to="/login" className="auth-link">Register</Link>
           </p>
+          </div>
         </div>
       </div>
     </div>
