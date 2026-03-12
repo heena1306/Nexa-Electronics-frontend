@@ -2,32 +2,34 @@
 .create-account-page {
   min-height: 100vh;
   width: 100%;
-  background-color: #e8e8e8;
+  background-color: #e5e5e5;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 2rem;
   box-sizing: border-box;
-  color: #2d2d2d;
+  color: #1a1a1a;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
-/* Card container: rounded, shadow, two columns */
+/* Card container: rounded, drop shadow, two columns */
 .create-account-card {
   width: 100%;
   max-width: 920px;
   min-height: 560px;
-  background: #fff;
+  background: #ffffff;
   border-radius: 20px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
 
-/* Left panel: gradient */
+/* Left panel: peachy-pink top-left to vibrant orange bottom-right (luminous) */
 .create-account-left {
-  background: linear-gradient(135deg, #f8e8e0 0%, #f5e6dc 40%, #f0d8a8 100%);
+  background:
+    radial-gradient(ellipse 80% 70% at 100% 100%, rgba(255, 140, 66, 0.5) 0%, transparent 55%),
+    linear-gradient(to bottom right, #FFDAC2 0%, #FFB88C 50%, #FF8C42 100%);
   padding: 2rem 2.5rem;
   display: flex;
   flex-direction: column;
@@ -43,13 +45,13 @@
 .logo-icon {
   width: 32px;
   height: 32px;
-  color: #3d3d3d;
+  color: #1a1a1a;
 }
 
 .create-account-logo .logo-text {
   font-size: 1.25rem;
   font-weight: 600;
-  color: #3d3d3d;
+  color: #1a1a1a;
   letter-spacing: -0.02em;
 }
 
@@ -66,27 +68,28 @@
 .create-account-copy .copy-bold {
   font-size: 1.25rem;
   font-weight: 700;
-  color: #2d2d2d;
+  color: #1a1a1a;
   line-height: 1.35;
   margin: 0;
   max-width: 280px;
 }
 
-/* Right panel: white form */
+/* Right panel: bright white */
 .create-account-right {
   padding: 2.5rem 2.5rem 2rem;
   display: flex;
   flex-direction: column;
+  background: #ffffff;
 }
 
 .create-account-header {
-  margin-bottom: 1.75rem;
+  margin-bottom: 0.5rem;
 }
 
 .header-icon {
   display: inline-flex;
-  color: #e07c3c;
-  margin-bottom: 0.5rem;
+  color: #FF8C42;
+  margin-bottom: 0.35rem;
 }
 
 .header-icon svg {
@@ -97,7 +100,7 @@
 .create-account-title {
   font-size: 1.75rem;
   font-weight: 700;
-  color: #2d2d2d;
+  color: #1a1a1a;
   margin: 0 0 0.5rem 0;
   letter-spacing: -0.02em;
 }
@@ -106,7 +109,7 @@
   font-size: 0.9rem;
   color: #6b6b6b;
   line-height: 1.5;
-  margin: 0;
+  margin: 0 0 1.5rem 0;
 }
 
 .create-account-form {
@@ -119,7 +122,7 @@
 .create-account-label {
   font-size: 0.9rem;
   font-weight: 500;
-  color: #2d2d2d;
+  color: #1a1a1a;
   margin-bottom: -0.35rem;
 }
 
@@ -127,11 +130,11 @@
   width: 100%;
   padding: 0.75rem 1rem;
   border: 1px solid #d0d0d0;
-  border-radius: 10px;
+  border-radius: 8px;
   font-size: 0.95rem;
   font-family: inherit;
-  color: #2d2d2d;
-  background: #fff;
+  color: #1a1a1a;
+  background: #ffffff;
   box-sizing: border-box;
 }
 
@@ -141,7 +144,7 @@
 
 .create-account-input:focus {
   outline: none;
-  border-color: #e07c3c;
+  border-color: #FF8C42;
 }
 
 .create-account-password-wrap {
@@ -170,7 +173,7 @@
 }
 
 .create-account-eye:hover {
-  color: #2d2d2d;
+  color: #1a1a1a;
 }
 
 .create-account-submit {
@@ -179,7 +182,7 @@
   background: #1a1a1a;
   color: #fff;
   border: none;
-  border-radius: 10px;
+  border-radius: 8px;
   font-size: 1rem;
   font-weight: 600;
   font-family: inherit;
@@ -202,7 +205,7 @@
 .divider-line {
   flex: 1;
   height: 1px;
-  background: #d8d8d8;
+  background: #dcdcdc;
 }
 
 .divider-text {
@@ -223,11 +226,12 @@
   align-items: center;
   justify-content: center;
   padding: 0.75rem;
-  background: #fff;
-  border: 1px solid #d8d8d8;
-  border-radius: 10px;
+  background: #ffffff;
+  border: 1px solid #dcdcdc;
+  border-radius: 8px;
   cursor: pointer;
-  color: #2d2d2d;
+  color: #1a1a1a;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
 .create-account-social-btn:hover {
@@ -243,13 +247,14 @@
 }
 
 .create-account-link {
-  color: #e07c3c;
+  color: #FF8C42;
   font-weight: 500;
   text-decoration: none;
 }
 
 .create-account-link:hover {
   text-decoration: underline;
+  color: #e67a30;
 }
 
 /* Responsive: stack on small screens */

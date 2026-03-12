@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FaEye, FaEyeSlash, FaUser, FaLock, FaGithub, FaApple, FaStar } from 'react-icons/fa';
+import { FaEye, FaEyeSlash, FaUser, FaLock, FaGithub, FaApple } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';
 import './index.css';
 
-const ShoppingBagIcon = ({ className }) => (
-  <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
-    <path d="M6 2L3 6V20C3 20.5304 3.21071 21.0391 3.58579 21.4142C3.96086 21.7893 4.46957 22 5 22H19C19.5304 22 20.0391 21.7893 20.4142 21.4142C20.7893 21.0391 21 20.5304 21 20V6L18 2H6Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M3 6H21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M16 10C16 11.0609 15.5786 12.0783 14.8284 12.8284C14.0783 13.5786 13.0609 14 12 14C10.9391 14 9.92172 13.5786 9.17157 12.8284C8.42143 12.0783 8 11.0609 8 10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+const LogoIcon = ({ className }) => (
+  <svg className={className} viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+    <path d="M20 8C20 8 18 6 14 6C9 6 6 9 6 13C6 16 8 18 12 19C17 20 20 22 20 26C20 28 19 30 16 30C12 30 10 28 10 26" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M12 26C12 28 10 30 6 30C4 30 2 28 2 26C2 22 5 20 10 19C14 18 16 16 16 13C16 9 13 6 8 6C6 6 4 7 4 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
   </svg>
 );
 
@@ -20,112 +19,82 @@ const Login = () => {
   };
 
   return (
-    <div className="luxemart-auth">
-      <div className="luxemart-auth-left">
-        <div className="luxemart-logo-main">
-          <span className="luxemart-logo-icon-wrap">
-            <ShoppingBagIcon className="luxemart-logo-icon" />
-          </span>
-          <div>
-            <div className="luxemart-logo-title">LUXEMART</div>
-            <div className="luxemart-logo-sub">PREMIUM E-COMMERCE</div>
+    <div className="auth-page">
+      <div className="auth-card">
+        <div className="auth-left">
+          <div className="auth-logo">
+            <LogoIcon className="auth-logo-icon" />
+            <span className="auth-logo-text">BrightNest</span>
+          </div>
+          <div className="auth-copy">
+            <p className="auth-copy-small">You can easily</p>
+            <p className="auth-copy-bold">Get access your personal hub for clarity and productivity.</p>
           </div>
         </div>
-        <div className="luxemart-hero">
-          <div className="luxemart-hero-lines" aria-hidden />
-          <h1 className="luxemart-hero-title">Shop Without</h1>
-          <h1 className="luxemart-hero-title-accent">Limits.</h1>
-          <p className="luxemart-hero-desc">Discover premium products, exclusive drops, and seamless checkout — crafted for the modern shopper.</p>
-          <div className="luxemart-trust">
-            <span className="luxemart-stars">★★★★★</span>
-            <span className="luxemart-trust-text">Trusted by 50,000+ shoppers</span>
-          </div>
-        </div>
-        <div className="luxemart-stats">
-          <div className="luxemart-stat">
-            <span className="luxemart-stat-value">50K+</span>
-            <span className="luxemart-stat-label">Products</span>
-          </div>
-          <div className="luxemart-stat-divider" />
-          <div className="luxemart-stat">
-            <span className="luxemart-stat-value">200+</span>
-            <span className="luxemart-stat-label">Brands</span>
-          </div>
-          <div className="luxemart-stat-divider" />
-          <div className="luxemart-stat">
-            <span className="luxemart-stat-value">4.9★</span>
-            <span className="luxemart-stat-label">Rating</span>
-          </div>
-        </div>
-      </div>
-      <div className="luxemart-auth-right">
-        <div className="luxemart-form-panel">
-          <div className="luxemart-form-icon" aria-hidden>
-            <FaStar className="luxemart-form-star" />
-          </div>
-          <h2 className="luxemart-form-title">Welcome back</h2>
-          <p className="luxemart-form-subtitle">Sign in to continue shopping</p>
-          <form className="luxemart-form" onSubmit={handleSubmit}>
-            <label className="luxemart-label" htmlFor="login-username">USERNAME</label>
-            <div className="luxemart-input-wrap">
-              <FaUser className="luxemart-input-icon" size={18} />
+        <div className="auth-right">
+          <h1 className="auth-form-title">Welcome back</h1>
+          <p className="auth-form-subtitle">Sign in to continue shopping</p>
+          <form className="auth-form" onSubmit={handleSubmit}>
+            <label className="auth-label" htmlFor="login-username">USERNAME</label>
+            <div className="auth-input-wrap">
+              <FaUser className="auth-input-icon" size={18} />
               <input
                 id="login-username"
                 type="text"
-                className="luxemart-input"
+                className="auth-input"
                 placeholder="your_username"
                 autoComplete="username"
               />
             </div>
-            <label className="luxemart-label" htmlFor="login-password">PASSWORD</label>
-            <div className="luxemart-input-wrap">
-              <FaLock className="luxemart-input-icon" size={18} />
+            <label className="auth-label" htmlFor="login-password">PASSWORD</label>
+            <div className="auth-input-wrap">
+              <FaLock className="auth-input-icon" size={18} />
               <input
                 id="login-password"
                 type={showPassword ? 'text' : 'password'}
-                className="luxemart-input"
+                className="auth-input"
                 placeholder="••••••••"
                 autoComplete="current-password"
               />
               <button
                 type="button"
-                className="luxemart-input-eye"
+                className="auth-input-eye"
                 onClick={() => setShowPassword((p) => !p)}
                 aria-label={showPassword ? 'Hide password' : 'Show password'}
               >
                 {showPassword ? <FaEyeSlash size={18} /> : <FaEye size={18} />}
               </button>
             </div>
-            <div className="luxemart-options">
-              <label className="luxemart-checkbox-wrap">
-                <input type="checkbox" className="luxemart-checkbox" />
-                <span className="luxemart-checkbox-label">Remember me</span>
+            <div className="auth-options">
+              <label className="auth-checkbox-wrap">
+                <input type="checkbox" className="auth-checkbox" />
+                <span className="auth-checkbox-label">Remember me</span>
               </label>
-              <Link to="#" className="luxemart-link">Forgot Password?</Link>
+              <Link to="#" className="auth-link">Forgot Password?</Link>
             </div>
-            <button type="submit" className="luxemart-btn">LOGIN</button>
+            <button type="submit" className="auth-btn">LOGIN</button>
           </form>
-          <div className="luxemart-divider">
-            <span className="luxemart-divider-line" />
-            <span className="luxemart-divider-text">or continue with</span>
-            <span className="luxemart-divider-line" />
+          <div className="auth-divider">
+            <span className="auth-divider-line" />
+            <span className="auth-divider-text">or continue with</span>
+            <span className="auth-divider-line" />
           </div>
-          <div className="luxemart-social">
-            <button type="button" className="luxemart-social-btn">
+          <div className="auth-social">
+            <button type="button" className="auth-social-btn">
               <FcGoogle size={22} />
               <span>Google</span>
             </button>
-            <button type="button" className="luxemart-social-btn">
+            <button type="button" className="auth-social-btn">
               <FaGithub size={22} />
               <span>GitHub</span>
             </button>
-            <button type="button" className="luxemart-social-btn">
+            <button type="button" className="auth-social-btn">
               <FaApple size={22} />
               <span>Apple</span>
             </button>
           </div>
-          <p className="luxemart-footer">
-            Don&apos;t have an account? <Link to="/signup" className="luxemart-link">Sign Up</Link>
+          <p className="auth-footer">
+            Don&apos;t have an account? <Link to="/signup" className="auth-link">Sign Up</Link>
           </p>
         </div>
       </div>

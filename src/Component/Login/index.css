@@ -1,263 +1,151 @@
-/* LuxeMart auth - white and orange theme, two columns */
-.luxemart-auth {
+/* Page wrapper: light grey background, centered (Image 1) */
+.auth-page {
   min-height: 100vh;
   width: 100%;
-  display: grid;
-  grid-template-columns: 2fr 3fr;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  color: #1a1a1a;
-  box-sizing: border-box;
-}
-
-/* Left: promotional - soft cream to muted peach gradient */
-.luxemart-auth-left {
-  background: linear-gradient(180deg, #FFFBF7 0%, #FFEDE0 100%);
-  padding: 2.5rem 3rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  position: relative;
-  overflow: hidden;
-}
-
-.luxemart-auth-left::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(200, 120, 60, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(200, 120, 60, 0.04) 1px, transparent 1px);
-  background-size: 24px 24px;
-  pointer-events: none;
-}
-
-.luxemart-logo-main {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  position: relative;
-  z-index: 1;
-}
-
-.luxemart-logo-icon-wrap {
-  width: 48px;
-  height: 48px;
-  background: #3d3d3d;
-  border-radius: 10px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border: none;
-}
-
-.luxemart-logo-icon {
-  width: 26px;
-  height: 26px;
-  color: #fff;
-}
-
-.luxemart-logo-title {
-  font-size: 1.35rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  color: #1a1a1a;
-}
-
-.luxemart-logo-sub {
-  font-size: 0.7rem;
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  color: #555;
-  margin-top: 2px;
-}
-
-.luxemart-hero {
-  position: relative;
-  z-index: 1;
-  margin: 3rem 0;
-}
-
-.luxemart-hero-lines {
-  width: 40px;
-  height: 4px;
-  background: #c4a574;
-  border-radius: 2px;
-  margin-bottom: 1.25rem;
-}
-
-.luxemart-hero-title {
-  font-size: clamp(2.2rem, 4vw, 3.2rem);
-  font-weight: 700;
-  margin: 0;
-  line-height: 1.15;
-  color: #1a1a1a;
-  font-family: Georgia, 'Times New Roman', serif;
-}
-
-.luxemart-hero-title-accent {
-  font-size: clamp(2.2rem, 4vw, 3.2rem);
-  font-weight: 700;
-  margin: 0.25rem 0 0 0;
-  line-height: 1.15;
-  color: #1a1a1a;
-  font-family: Georgia, 'Times New Roman', serif;
-}
-
-.luxemart-hero-desc {
-  font-size: 0.95rem;
-  color: #555;
-  line-height: 1.6;
-  margin: 1.25rem 0 0 0;
-  max-width: 420px;
-}
-
-.luxemart-trust {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 1.5rem;
-}
-
-.luxemart-stars {
-  color: #c4a574;
-  font-size: 1.1rem;
-  letter-spacing: 2px;
-}
-
-.luxemart-trust-text {
-  font-size: 0.9rem;
-  color: #666;
-}
-
-.luxemart-stats {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  position: relative;
-  z-index: 1;
-  margin-top: auto;
-  padding-top: 2rem;
-}
-
-.luxemart-stat {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.luxemart-stat-value {
-  font-size: 1.75rem;
-  font-weight: 700;
-  color: #b8862e;
-}
-
-.luxemart-stat-label {
-  font-size: 0.8rem;
-  color: #666;
-}
-
-.luxemart-stat-divider {
-  width: 1px;
-  height: 36px;
-  background: rgba(0, 0, 0, 0.12);
-}
-
-/* Right: form panel - bright white */
-.luxemart-auth-right {
-  background: #FFFFFF;
+  background-color: #e8e8e8;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 2rem;
-  min-height: 100vh;
+  box-sizing: border-box;
+  color: #2d2d2d;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
-.luxemart-form-panel {
+/* Card: rounded, shadow, two columns */
+.auth-card {
   width: 100%;
-  max-width: 420px;
-  background: #FFFFFF;
-  border-radius: 14px;
-  padding: 2.5rem;
-  border: 1px solid #E8E8E8;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  max-width: 920px;
+  min-height: 560px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
-.luxemart-form-icon {
+/* Left panel: soft peach/orange gradient */
+.auth-left {
+  background: linear-gradient(135deg, #f8e8e0 0%, #f5e6dc 40%, #f0d8a8 100%);
+  padding: 2rem 2.5rem;
   display: flex;
-  justify-content: center;
-  margin-bottom: 1rem;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.luxemart-form-star {
-  width: 24px;
-  height: 24px;
-  color: #d96d00;
+.auth-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
-.luxemart-form-title {
-  font-size: 1.85rem;
+.auth-logo-icon {
+  width: 32px;
+  height: 32px;
+  color: #3d3d3d;
+}
+
+.auth-logo-text {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #3d3d3d;
+  letter-spacing: -0.02em;
+}
+
+.auth-copy {
+  margin-top: auto;
+}
+
+.auth-copy-small {
+  font-size: 0.875rem;
+  color: #6b6b6b;
+  margin: 0 0 0.25rem 0;
+}
+
+.auth-copy-bold {
+  font-size: 1.25rem;
   font-weight: 700;
-  margin: 0 0 0.35rem 0;
-  color: #1a1a1a;
-  font-family: Georgia, 'Times New Roman', serif;
+  color: #2d2d2d;
+  line-height: 1.35;
+  margin: 0;
+  max-width: 280px;
 }
 
-.luxemart-form-subtitle {
+/* Right panel: white form */
+.auth-right {
+  padding: 2.5rem 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-form-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 0.35rem 0;
+  font-family: Georgia, 'Times New Roman', serif;
+  letter-spacing: -0.02em;
+}
+
+.auth-form-subtitle {
   font-size: 0.95rem;
-  color: #555;
+  color: #6b6b6b;
+  line-height: 1.5;
   margin: 0 0 1.75rem 0;
 }
 
-.luxemart-form {
+.auth-form {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  margin-bottom: 0;
 }
 
-.luxemart-label {
+.auth-label {
   font-size: 0.7rem;
   font-weight: 600;
   letter-spacing: 0.1em;
   color: #555;
   margin-bottom: -4px;
+  text-transform: uppercase;
 }
 
-.luxemart-input-wrap {
+.auth-input-wrap {
   position: relative;
   display: flex;
   align-items: center;
 }
 
-.luxemart-input-icon {
+.auth-input-icon {
   position: absolute;
   left: 14px;
   color: #888;
   pointer-events: none;
 }
 
-.luxemart-input {
+.auth-input {
   width: 100%;
   padding: 14px 14px 14px 44px;
-  background: #FAFAFA;
-  border: 1px solid #E8E8E8;
-  border-radius: 8px;
-  color: #1a1a1a;
+  background: #fff;
+  border: 1px solid #d0d0d0;
+  border-radius: 10px;
+  color: #2d2d2d;
   font-size: 0.95rem;
   font-family: inherit;
   box-sizing: border-box;
 }
 
-.luxemart-input::placeholder {
-  color: #999;
+.auth-input::placeholder {
+  color: #9e9e9e;
 }
 
-.luxemart-input:focus {
+.auth-input:focus {
   outline: none;
-  border-color: #ccc;
-  background: #FFFFFF;
+  border-color: #e07c3c;
 }
 
-.luxemart-input-eye {
+.auth-input-eye {
   position: absolute;
   right: 12px;
   background: none;
@@ -270,11 +158,11 @@
   justify-content: center;
 }
 
-.luxemart-input-eye:hover {
-  color: #555;
+.auth-input-eye:hover {
+  color: #2d2d2d;
 }
 
-.luxemart-options {
+.auth-options {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -282,143 +170,146 @@
   gap: 8px;
 }
 
-.luxemart-checkbox-wrap {
+.auth-checkbox-wrap {
   display: flex;
   align-items: center;
   gap: 8px;
   cursor: pointer;
 }
 
-.luxemart-checkbox {
+.auth-checkbox {
   width: 18px;
   height: 18px;
-  accent-color: #1a1a1a;
+  accent-color: #e07c3c;
   cursor: pointer;
 }
 
-.luxemart-checkbox-label {
+.auth-checkbox-label {
   font-size: 0.9rem;
-  color: #555;
+  color: #2d2d2d;
 }
 
-.luxemart-link {
-  color: #d96d00;
+.auth-link {
+  color: #e07c3c;
   font-size: 0.9rem;
   font-weight: 500;
   text-decoration: underline;
 }
 
-.luxemart-link:hover {
-  color: #b85c00;
+.auth-link:hover {
+  color: #c96a2e;
 }
 
-.luxemart-btn {
+.auth-btn {
   width: 100%;
   padding: 14px 24px;
   margin-top: 0.5rem;
   background: #1a1a1a;
-  border: none;
-  border-radius: 8px;
   color: #fff;
+  border: none;
+  border-radius: 10px;
   font-size: 0.95rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   cursor: pointer;
   font-family: inherit;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
 }
 
-.luxemart-btn:hover {
-  opacity: 0.95;
+.auth-btn:hover {
+  background: #2d2d2d;
 }
 
-.luxemart-divider {
+.auth-divider {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.75rem;
   margin: 1.5rem 0 1.25rem 0;
 }
 
-.luxemart-divider-line {
+.auth-divider-line {
   flex: 1;
   height: 1px;
-  background: #E0E0E0;
+  background: #d8d8d8;
 }
 
-.luxemart-divider-text {
-  font-size: 0.75rem;
-  color: #888;
-  letter-spacing: 0.05em;
+.auth-divider-text {
+  font-size: 0.8rem;
+  color: #9e9e9e;
+  white-space: nowrap;
+  text-transform: lowercase;
 }
 
-.luxemart-social {
+.auth-social {
   display: flex;
-  gap: 12px;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
 }
 
-.luxemart-social-btn {
+.auth-social-btn {
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 12px;
-  background: #FAFAFA;
-  border: 1px solid #E8E8E8;
-  border-radius: 50%;
-  aspect-ratio: 1;
-  color: #333;
-  font-size: 0.8rem;
+  padding: 12px 16px;
+  background: #fff;
+  border: 1px solid #d8d8d8;
+  border-radius: 10px;
+  color: #2d2d2d;
+  font-size: 0.85rem;
   font-family: inherit;
   cursor: pointer;
 }
 
-.luxemart-social-btn span {
-  display: none;
+.auth-social-btn:hover {
+  border-color: #b0b0b0;
+  background: #f8f8f8;
 }
 
-@media (min-width: 640px) {
-  .luxemart-social-btn {
-    border-radius: 10px;
-    aspect-ratio: auto;
-    padding: 12px 16px;
-  }
-  .luxemart-social-btn span {
-    display: inline;
-  }
-}
-
-.luxemart-social-btn:hover {
-  border-color: #ccc;
-  background: #f5f5f5;
-}
-
-.luxemart-footer {
+.auth-footer {
   font-size: 0.9rem;
-  color: #555;
-  margin: 1.5rem 0 0 0;
+  color: #6b6b6b;
+  margin: 0;
+  margin-top: auto;
 }
 
-/* Responsive: stack on small screens */
-@media (max-width: 900px) {
-  .luxemart-auth {
+/* Responsive */
+@media (max-width: 720px) {
+  .auth-page {
+    padding: 1rem;
+  }
+
+  .auth-card {
     grid-template-columns: 1fr;
-  }
-
-  .luxemart-auth-left {
-    min-height: 40vh;
-    padding: 2rem;
-  }
-
-  .luxemart-hero {
-    margin: 2rem 0;
-  }
-
-  .luxemart-stats {
-    padding-top: 1.5rem;
-  }
-
-  .luxemart-auth-right {
+    max-width: 440px;
     min-height: auto;
-    padding: 2rem 1.5rem;
+  }
+
+  .auth-left {
+    padding: 1.5rem;
+    min-height: 200px;
+  }
+
+  .auth-copy-bold {
+    max-width: none;
+  }
+
+  .auth-right {
+    padding: 1.5rem;
+  }
+
+  .auth-social-btn span {
+    display: none;
+  }
+
+  .auth-social-btn {
+    padding: 12px;
+  }
+}
+
+@media (min-width: 721px) {
+  .auth-social-btn span {
+    display: inline;
   }
 }
