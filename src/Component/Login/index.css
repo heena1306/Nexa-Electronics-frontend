@@ -16,15 +16,19 @@
   background: #ffffff;
 }
 
-/* Left panel: radial orange glow, 72px padding */
+/* Left panel: container for Silk background; gradient removed */
 .auth-left {
-  background:
-    radial-gradient(circle at 18% 85%, #f07a44 0%, #f29a66 25%, #f6c4a1 45%, transparent 65%),
-    #f6e6d7;
-  padding: 72px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  min-height: 0;
+}
+
+/* Left-panel text on Silk: inherit white from parent */
+.auth-left .auth-logoname,
+.auth-left .auth-logo-subtitle,
+.auth-left .auth-copy-small,
+.auth-left .auth-copy-bold {
+  color: inherit;
 }
 
 .auth-logo {
@@ -319,7 +323,6 @@
   }
 
   .auth-left {
-    padding: 2rem;
     min-height: 200px;
     order: 1;
   }
@@ -344,10 +347,6 @@
 }
 
 @media (max-width: 992px) {
-  .auth-left {
-    padding: 2rem;
-  }
-
   .auth-right {
     padding: 60px 2rem;
   }

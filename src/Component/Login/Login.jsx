@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaEye, FaEyeSlash, FaUser, FaLock, FaGithub, FaApple } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';
+import SilkBackground from '../SilkBackground/SilkBackground';
 import './index.css';
 
 const Login = () => {
@@ -14,14 +15,26 @@ const Login = () => {
   return (
     <div className="auth-page">
       <div className="auth-card">
-        <div className="auth-left">
-          <div className="auth-logo">
-            <h1 className="auth-logoname">NEXA</h1>
-            <h2 className="auth-logo-subtitle">ELECTRONICS</h2>
-          </div>
-          <div className="auth-copy">
-            <p className="auth-copy-small">You can easily</p>
-            <p className="auth-copy-bold">Get access your personal hub for clarity and productivity.</p>
+        <div className="auth-left relative w-full h-full overflow-hidden">
+          <SilkBackground
+            speed={5}
+            scale={1}
+            color="#7B7481"
+            noiseIntensity={1.5}
+            rotation={0}
+          />
+          <div className="absolute inset-0 bg-black/10 z-[1]" aria-hidden />
+          <div className="absolute inset-0 flex flex-col justify-between p-8 md:p-10 z-10 pointer-events-none">
+            <div className="auth-logo text-white">
+              <h1 className="auth-logoname">NEXA</h1>
+              <h2 className="auth-logo-subtitle">ELECTRONICS</h2>
+            </div>
+            <div className="absolute bottom-10 left-10 text-white z-10 max-w-[380px]">
+              <p className="text-sm opacity-90 mb-1">You can easily</p>
+              <h2 className="text-2xl font-semibold leading-tight">
+                Get access your personal hub for clarity and productivity.
+              </h2>
+            </div>
           </div>
         </div>
         <div className="auth-right">

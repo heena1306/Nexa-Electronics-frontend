@@ -18,10 +18,13 @@ const CreateAccount = () => {
         <div className="create-account-left">
           <div className="create-account-logo">
             <svg className="logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
-              <path d="M20 8C20 8 18 6 14 6C9 6 6 9 6 13C6 16 8 18 12 19C17 20 20 22 20 26C20 28 19 30 16 30C12 30 10 28 10 26" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M12 26C12 28 10 30 6 30C4 30 2 28 2 26C2 22 5 20 10 19C14 18 16 16 16 13C16 9 13 6 8 6C6 6 4 7 4 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M8 6L16 2L24 6V26L16 30L8 26V6Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M16 2V30M8 6L16 10L24 6M8 26L16 22L24 26" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
-            <span className="logo-text">BrightNest</span>
+            <div className="create-account-logo-text">
+              <span className="logo-name">NEXA</span>
+              <span className="logo-subtitle">ELECTRONICS</span>
+            </div>
           </div>
           <div className="create-account-copy">
             <p className="copy-small">You can easily</p>
@@ -84,7 +87,7 @@ const CreateAccount = () => {
             </button>
           </div>
           <p className="create-account-footer">
-            Already have an account? <Link to="/login" className="create-account-link">Sign in</Link>
+            Already have an account? <Link to="/login" className="create-account-link">Register</Link>
           </p>
         </div>
       </div>
