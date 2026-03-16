@@ -52,7 +52,7 @@ const Signup = () => {
             </span>
             <h1 className="auth-form-title">Create an account</h1>
           </div>
-          <p className="auth-form-subtitle">Access your tasks, notes, and projects anytime, anywhere – and keep everything flowing in one place.</p>
+          <p className="auth-form-subtitle">Create an account to browse the latest electronics, track orders, and get exclusive deals.</p>
           <form className="auth-form" onSubmit={handleSubmit}>
             <label className="auth-label" htmlFor="signup-email">Your email</label>
             <div className="auth-input-wrap auth-input-wrap--no-icon">
@@ -60,8 +60,18 @@ const Signup = () => {
                 id="signup-email"
                 type="email"
                 className="auth-input"
-                placeholder="natalia.brak@knmstudio.com"
+                placeholder="you@example.com"
                 autoComplete="email"
+              />
+            </div>
+            <label className="auth-label" htmlFor="signup-username">Username</label>
+            <div className="auth-input-wrap auth-input-wrap--no-icon">
+              <input
+                id="signup-username"
+                type="text"
+                className="auth-input"
+                placeholder="your_username"
+                autoComplete="username"
               />
             </div>
             <label className="auth-label" htmlFor="signup-password">Create password</label>
@@ -83,6 +93,7 @@ const Signup = () => {
               </button>
             </div>
             <button type="submit" className="auth-btn">Create account</button>
+            <p className="auth-secure-tagline">Secure access to your orders, wishlist, and exclusive tech deals.</p>
           </form>
           <div className="auth-divider">
             <span className="auth-divider-line" />
@@ -101,7 +112,7 @@ const Signup = () => {
             </button>
           </div>
           <p className="auth-footer">
-            Already have an account? <Link to="/login" className="auth-link">Register</Link>
+            Already have an account? <Link to="/login" className="auth-link">Sign in</Link>
           </p>
           </div>
         </div>
