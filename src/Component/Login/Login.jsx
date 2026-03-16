@@ -30,17 +30,22 @@ const Login = () => {
               <h2 className="auth-logo-subtitle">ELECTRONICS</h2>
             </div>
             <div className="absolute bottom-10 left-10 text-white z-10 max-w-[380px]">
-              <p className="text-sm opacity-90 mb-1">You can easily</p>
-              <h2 className="text-2xl font-semibold leading-tight">
-                Get access your personal hub for clarity and productivity.
+              <h2 className="text-2xl font-semibold leading-tight mb-2">
+                Shop smarter with Nexa Electronics
               </h2>
+              <p className="text-sm opacity-90 mb-2">
+                Discover the latest gadgets, smart devices, and cutting-edge technology — all in one place.
+              </p>
+              <p className="text-xs opacity-80">
+                From smartphones to smart homes, experience the future of electronics.
+              </p>
             </div>
           </div>
         </div>
         <div className="auth-right">
           <div className="auth-right-inner">
-          <h1 className="auth-form-title">Welcome back</h1>
-          <p className="auth-form-subtitle">Sign in to continue shopping</p>
+          <h1 className="auth-form-title">Welcome back to Nexa Electronics</h1>
+          <p className="auth-form-subtitle">Sign in to explore the latest electronics and exclusive deals.</p>
           <form className="auth-form" onSubmit={handleSubmit}>
             <label className="auth-label" htmlFor="login-username">USERNAME</label>
             <div className="auth-input-wrap">
@@ -80,6 +85,7 @@ const Login = () => {
               <Link to="#" className="auth-link">Forgot Password?</Link>
             </div>
             <button type="submit" className="auth-btn">Login</button>
+            <p className="auth-secure-tagline">Secure access to your orders, wishlist, and exclusive tech deals.</p>
           </form>
           <div className="auth-divider">
             <span className="auth-divider-line" />
