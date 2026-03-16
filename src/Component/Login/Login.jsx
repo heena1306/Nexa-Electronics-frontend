@@ -47,35 +47,39 @@ const Login = () => {
           <h1 className="auth-form-title">Welcome back to Nexa Electronics</h1>
           <p className="auth-form-subtitle">Sign in to explore the latest electronics and exclusive deals.</p>
           <form className="auth-form" onSubmit={handleSubmit}>
-            <label className="auth-label" htmlFor="login-username">USERNAME</label>
-            <div className="auth-input-wrap">
-              <FaUser className="auth-input-icon" size={18} />
-              <input
-                id="login-username"
-                type="text"
-                className="auth-input"
-                placeholder="your_username"
-                autoComplete="username"
-              />
+            <div className="auth-field">
+              <label className="auth-label" htmlFor="login-username">USERNAME</label>
+              <div className="auth-input-wrap">
+                <FaUser className="auth-input-icon" size={18} />
+                <input
+                  id="login-username"
+                  type="text"
+                  className="auth-input"
+                  placeholder="your_username"
+                  autoComplete="username"
+                />
+              </div>
             </div>
-            <label className="auth-label" htmlFor="login-password">PASSWORD</label>
-            <div className="auth-input-wrap">
-              <FaLock className="auth-input-icon" size={18} />
-              <input
-                id="login-password"
-                type={showPassword ? 'text' : 'password'}
-                className="auth-input"
-                placeholder="••••••••"
-                autoComplete="current-password"
-              />
-              <button
-                type="button"
-                className="auth-input-eye"
-                onClick={() => setShowPassword((p) => !p)}
-                aria-label={showPassword ? 'Hide password' : 'Show password'}
-              >
-                {showPassword ? <FaEyeSlash size={18} /> : <FaEye size={18} />}
-              </button>
+            <div className="auth-field">
+              <label className="auth-label" htmlFor="login-password">PASSWORD</label>
+              <div className="auth-input-wrap">
+                <FaLock className="auth-input-icon" size={18} />
+                <input
+                  id="login-password"
+                  type={showPassword ? 'text' : 'password'}
+                  className="auth-input"
+                  placeholder="••••••••"
+                  autoComplete="current-password"
+                />
+                <button
+                  type="button"
+                  className="auth-input-eye"
+                  onClick={() => setShowPassword((p) => !p)}
+                  aria-label={showPassword ? 'Hide password' : 'Show password'}
+                >
+                  {showPassword ? <FaEyeSlash size={18} /> : <FaEye size={18} />}
+                </button>
+              </div>
             </div>
             <div className="auth-options">
               <label className="auth-checkbox-wrap">
