@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -17,11 +17,11 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: inherit;
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: inherit;
 }
 
 html,
@@ -37,24 +37,162 @@ body {
   width: 100%;
 }
 
-h1 {
+/* Don’t squash hero title — only generic page h1s */
+h1:not(.nexa-hero-title) {
   font-size: 3.2em;
   line-height: 1.1;
 }
 
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
   cursor: pointer;
-  transition: border-color 0.25s;
+  background-color: transparent;
+  border: none;
+  padding: 0;
 }
-button:hover {
-  border-color: #646cff;
+
+/* Global button reset above strips bg — force Nexa black pills (Search, Send, Buy Now) */
+button.nexa-btn-solid-black {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  border: 1px solid #000000 !important;
+  padding-left: 1.75rem !important;
+  padding-right: 1.75rem !important;
+  min-height: 2.5rem !important;
+}
+
+button.nexa-btn-solid-black:hover,
+button.nexa-btn-solid-black:active {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  border-color: #000000 !important;
+}
+
+/* Slow motion-only hovers — keep fills and text colors as-is */
+button.nexa-btn-solid-black:not(:disabled),
+button.nexa-btn-outline-white:not(:disabled) {
+  transition:
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+button.nexa-btn-solid-black:not(:disabled):hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.38);
+}
+
+button.nexa-btn-outline-white:not(:disabled):hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+button.nexa-btn-solid-black:not(:disabled):active,
+button.nexa-btn-outline-white:not(:disabled):active {
+  transform: translateY(0) scale(0.985);
+  transition-duration: 0.22s;
+}
+
+/* Icon / surface buttons (nav, pagination, sidebar rows) */
+button.nexa-btn-ghost-light:not(:disabled) {
+  transition:
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.55s ease;
+}
+
+button.nexa-btn-ghost-light:not(:disabled):hover {
+  transform: scale(1.06);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.45),
+    0 14px 42px rgba(0, 0, 0, 0.28);
+}
+
+button.nexa-btn-ghost-light:not(:disabled):active {
+  transform: scale(0.98);
+  transition-duration: 0.22s;
+}
+
+button.nexa-btn-surface:not(:disabled) {
+  transition:
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+button.nexa-btn-surface:not(:disabled):hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+}
+
+button.nexa-btn-surface:not(:disabled):active {
+  transform: translateY(0);
+  transition-duration: 0.22s;
+}
+
+button.nexa-btn-surface-dark:not(:disabled) {
+  transition:
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+button.nexa-btn-surface-dark:not(:disabled):hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.45);
+}
+
+button.nexa-btn-surface-dark:not(:disabled):active {
+  transform: translateY(0);
+  transition-duration: 0.22s;
+}
+
+button.nexa-btn-sidebar-row:not(:disabled) {
+  transition:
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+button.nexa-btn-sidebar-row:not(:disabled):hover {
+  transform: translateX(4px);
+  box-shadow: -2px 0 0 0 rgba(0, 0, 0, 0.06);
+}
+
+button.nexa-btn-sidebar-row:not(:disabled):active {
+  transform: translateX(2px);
+  transition-duration: 0.22s;
+}
+
+button.nexa-btn-sidebar-filter:not(:disabled) {
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+button.nexa-btn-sidebar-filter:not(:disabled):hover {
+  transform: translateX(3px);
+}
+
+button.nexa-btn-sidebar-filter:not(:disabled):active {
+  transition-duration: 0.2s;
+}
+
+button.nexa-btn-outline-white {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  border: 1px solid #000000 !important;
+  padding-left: 1.25rem !important;
+  padding-right: 1.25rem !important;
+  min-height: 2.5rem !important;
+}
+
+button.nexa-btn-outline-white:hover,
+button.nexa-btn-outline-white:active {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  border-color: #000000 !important;
+}
+
+@media (min-width: 640px) {
+  button.nexa-btn-product {
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+  }
 }
 button:focus,
 button:focus-visible {
@@ -66,10 +204,25 @@ button:focus-visible {
     color: #213547;
     background-color: #ffffff;
   }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+}
+
+/* Horizontal scroll — light thumb on light track (recommendations row) */
+.rec-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #d4d4d4 #f5f5f5;
+}
+.rec-scroll::-webkit-scrollbar {
+  height: 8px;
+}
+.rec-scroll::-webkit-scrollbar-track {
+  background: #f5f5f5;
+  border-radius: 9999px;
+}
+.rec-scroll::-webkit-scrollbar-thumb {
+  background: #e5e5e5;
+  border-radius: 9999px;
+  border: 2px solid #f5f5f5;
+}
+.rec-scroll::-webkit-scrollbar-thumb:hover {
+  background: #d4d4d4;
 }

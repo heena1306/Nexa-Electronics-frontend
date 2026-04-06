@@ -1,15 +1,17 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+﻿import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaEye, FaEyeSlash, FaUser, FaLock, FaGithub, FaApple } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';
 import SilkBackground from '../SilkBackground/SilkBackground';
 import './index.css';
 
 const Login = () => {
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    navigate('/home', { replace: true });
   };
 
   return (
@@ -118,3 +120,4 @@ const Login = () => {
 };
 
 export default Login;
+
