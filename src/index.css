@@ -68,6 +68,14 @@ button.nexa-btn-solid-black:active {
   border-color: #000000 !important;
 }
 
+button.nexa-btn-solid-black.nexa-btn-card-buy {
+  min-height: 2.75rem !important;
+  padding-left: 1.5rem !important;
+  padding-right: 1.5rem !important;
+  font-size: 0.9375rem !important;
+  font-weight: 600 !important;
+}
+
 /* Slow motion-only hovers — keep fills and text colors as-is */
 button.nexa-btn-solid-black:not(:disabled),
 button.nexa-btn-outline-white:not(:disabled) {
@@ -90,6 +98,23 @@ button.nexa-btn-solid-black:not(:disabled):active,
 button.nexa-btn-outline-white:not(:disabled):active {
   transform: translateY(0) scale(0.985);
   transition-duration: 0.22s;
+}
+
+/* Section CTAs — slower ease than default black pills */
+button.nexa-btn-solid-black.nexa-btn-slow-hover:not(:disabled) {
+  transition:
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+button.nexa-btn-solid-black.nexa-btn-slow-hover:not(:disabled):hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.38);
+}
+
+button.nexa-btn-solid-black.nexa-btn-slow-hover:not(:disabled):active {
+  transform: translateY(0) scale(0.985);
+  transition-duration: 0.25s;
 }
 
 /* Icon / surface buttons (nav, pagination, sidebar rows) */
@@ -188,6 +213,62 @@ button.nexa-btn-outline-white:active {
   border-color: #000000 !important;
 }
 
+/* Secondary cart — compact, neutral border (product cards) */
+button.nexa-btn-outline-subtle {
+  background-color: #ffffff !important;
+  color: #525252 !important;
+  border: 1px solid #e5e5e5 !important;
+  padding-left: 0.875rem !important;
+  padding-right: 0.875rem !important;
+  min-height: 2.125rem !important;
+  font-size: 0.8125rem !important;
+  font-weight: 500 !important;
+}
+
+button.nexa-btn-outline-subtle:hover,
+button.nexa-btn-outline-subtle:active {
+  background-color: #fafafa !important;
+  color: #404040 !important;
+  border-color: #d4d4d4 !important;
+}
+
+button.nexa-btn-outline-subtle:not(:disabled) {
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.2s ease;
+}
+
+button.nexa-btn-outline-subtle:not(:disabled):hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+}
+
+button.nexa-btn-outline-subtle:not(:disabled):active {
+  transform: translateY(0);
+  transition-duration: 0.15s;
+}
+
+/* Primary buy on cards — slightly taller, calmer hover shadow */
+button.nexa-btn-solid-black.nexa-btn-card-buy:not(:disabled):hover {
+  transform: translateY(-1.5px) scale(1.01);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.28);
+}
+
+/* Add to cart on cards — match Buy Now height / padding for equal actions */
+button.nexa-btn-outline-subtle.nexa-btn-card-cart {
+  min-height: 2.75rem !important;
+  padding-left: 1.5rem !important;
+  padding-right: 1.5rem !important;
+  font-size: 0.9375rem !important;
+  font-weight: 600 !important;
+}
+
+button.nexa-btn-outline-subtle.nexa-btn-card-cart:not(:disabled):hover {
+  transform: translateY(-1.5px) scale(1.01);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+}
+
 @media (min-width: 640px) {
   button.nexa-btn-product {
     padding-left: 2rem !important;
@@ -225,4 +306,97 @@ button:focus-visible {
 }
 .rec-scroll::-webkit-scrollbar-thumb:hover {
   background: #d4d4d4;
+}
+
+/* Shop filter sidebar — scroll + dual price range */
+.nexa-filter-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #d4d4d4 #f5f5f5;
+}
+.nexa-filter-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+.nexa-filter-scroll::-webkit-scrollbar-track {
+  background: #f5f5f5;
+  border-radius: 9999px;
+}
+.nexa-filter-scroll::-webkit-scrollbar-thumb {
+  background: #e0e0e0;
+  border-radius: 9999px;
+}
+
+.nexa-dual-range {
+  position: relative;
+  height: 28px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+.nexa-dual-range__track {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 6px;
+  transform: translateY(-50%);
+  border-radius: 9999px;
+  background: #e5e5e5;
+  pointer-events: none;
+}
+.nexa-dual-range__fill {
+  position: absolute;
+  top: 50%;
+  height: 6px;
+  transform: translateY(-50%);
+  border-radius: 9999px;
+  background: #171717;
+  pointer-events: none;
+}
+.nexa-dual-range input[type="range"] {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  top: 0;
+  height: 28px;
+  margin: 0;
+  background: none;
+  pointer-events: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.nexa-dual-range input[type="range"]::-webkit-slider-thumb {
+  pointer-events: auto;
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #000000;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+  cursor: pointer;
+}
+.nexa-dual-range input[type="range"]::-moz-range-thumb {
+  pointer-events: auto;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #000000;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+  cursor: pointer;
+}
+.nexa-dual-range input[type="range"]::-webkit-slider-runnable-track {
+  -webkit-appearance: none;
+  height: 6px;
+  background: transparent;
+}
+.nexa-dual-range input[type="range"]::-moz-range-track {
+  height: 6px;
+  background: transparent;
+}
+.nexa-dual-range .nexa-range-min {
+  z-index: 2;
+}
+.nexa-dual-range .nexa-range-max {
+  z-index: 3;
 }
