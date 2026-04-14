@@ -18,7 +18,7 @@ export default function CatalogToolbar({
   onViewModeChange,
 }) {
   return (
-    <div className="mb-6 space-y-4 rounded-xl border border-neutral-200/90 bg-white p-4 shadow-sm ring-1 ring-black/[0.04] sm:p-5">
+    <div className="mb-6 space-y-4 rounded-xl border border-neutral-200/90 bg-white p-4 shadow-sm ring-1 ring-black/[0.04] transition-shadow duration-300 sm:p-5">
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <p className="text-sm font-medium text-neutral-600">
           <span className="tabular-nums text-lg font-bold text-neutral-900">
@@ -33,7 +33,7 @@ export default function CatalogToolbar({
           )}
         </p>
 
-        <div className="flex items-center gap-2 rounded-full border border-neutral-200 bg-neutral-50/80 p-1 ring-1 ring-black/[0.03]">
+        <div className="flex items-center gap-2 rounded-full border border-neutral-200 bg-neutral-50/80 p-1 ring-1 ring-black/[0.03] transition-colors duration-300">
           <span className="sr-only" id="view-mode-label">
             Layout
           </span>
@@ -43,10 +43,10 @@ export default function CatalogToolbar({
             aria-pressed={viewMode === "grid"}
             onClick={() => onViewModeChange("grid")}
             className={
-              "flex h-9 w-9 items-center justify-center rounded-full transition duration-200 " +
+              "flex h-9 w-9 items-center justify-center rounded-full transition duration-300 ease-out " +
               (viewMode === "grid"
                 ? "bg-white text-neutral-900 shadow-sm ring-1 ring-neutral-200"
-                : "text-neutral-500 hover:text-neutral-800")
+                : "text-neutral-500 hover:bg-white/90 hover:text-neutral-800")
             }
           >
             <FaThLarge className="h-4 w-4" aria-hidden />
@@ -57,10 +57,10 @@ export default function CatalogToolbar({
             aria-pressed={viewMode === "list"}
             onClick={() => onViewModeChange("list")}
             className={
-              "flex h-9 w-9 items-center justify-center rounded-full transition duration-200 " +
+              "flex h-9 w-9 items-center justify-center rounded-full transition duration-300 ease-out " +
               (viewMode === "list"
                 ? "bg-white text-neutral-900 shadow-sm ring-1 ring-neutral-200"
-                : "text-neutral-500 hover:text-neutral-800")
+                : "text-neutral-500 hover:bg-white/90 hover:text-neutral-800")
             }
           >
             <FaListUl className="h-4 w-4" aria-hidden />
@@ -80,10 +80,10 @@ export default function CatalogToolbar({
               type="button"
               onClick={() => onSortChange(opt.value)}
               className={
-                "rounded-full border px-3 py-2 text-sm font-medium transition duration-200 " +
+                "rounded-full border px-3 py-2 text-sm font-semibold transition duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] active:scale-[0.98] motion-reduce:active:scale-100 " +
                 (active
                   ? "border-neutral-900 bg-neutral-900 text-white shadow-sm"
-                  : "border-neutral-200 bg-white text-neutral-700 shadow-sm hover:border-neutral-300 hover:shadow")
+                  : "border-neutral-200 bg-white text-neutral-700 shadow-sm hover:-translate-y-px hover:border-neutral-300 hover:shadow-md motion-reduce:hover:translate-y-0")
               }
             >
               {opt.label}

@@ -5,9 +5,15 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  --nexa-accent: #ea580c;
+  --nexa-accent-hover: #c2410c;
+  --nexa-surface: #f4f4f5;
+  --nexa-text: #171717;
+  --nexa-border: #e5e5e5;
+
+  color-scheme: light;
+  color: var(--nexa-text);
+  background-color: #ffffff;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -37,8 +43,8 @@ body {
   width: 100%;
 }
 
-/* Don’t squash hero title — only generic page h1s */
-h1:not(.nexa-hero-title) {
+/* Don’t squash hero title — page h1s use Tailwind size classes */
+h1:not(.nexa-hero-title):not([class*="text-"]) {
   font-size: 3.2em;
   line-height: 1.1;
 }
@@ -66,6 +72,43 @@ button.nexa-btn-solid-black:active {
   background-color: #000000 !important;
   color: #ffffff !important;
   border-color: #000000 !important;
+}
+
+/* Links styled as black pills (e.g. React Router <Link>) — match button rules */
+a.nexa-btn-solid-black {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  border: 1px solid #000000 !important;
+  text-decoration: none !important;
+  padding-left: 1.75rem !important;
+  padding-right: 1.75rem !important;
+  min-height: 2.5rem !important;
+}
+
+a.nexa-btn-solid-black:hover,
+a.nexa-btn-solid-black:active {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  border-color: #000000 !important;
+}
+
+a.nexa-btn-solid-black:not(:disabled) {
+  transition:
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+a.nexa-btn-solid-black:not(:disabled):hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.38);
+}
+
+a.nexa-btn-solid-black:not(:disabled):active {
+  transform: translateY(0) scale(0.985);
+  transition-duration: 0.22s;
 }
 
 button.nexa-btn-solid-black.nexa-btn-card-buy {
@@ -280,11 +323,13 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
+html {
+  background-color: #ffffff;
+}
+
+body {
+  color: var(--nexa-text);
+  background-color: #ffffff;
 }
 
 /* Horizontal scroll — light thumb on light track (recommendations row) */
@@ -330,6 +375,7 @@ button:focus-visible {
   height: 28px;
   margin-top: 4px;
   margin-bottom: 4px;
+  overflow: hidden;
 }
 .nexa-dual-range__track {
   position: absolute;
@@ -350,6 +396,7 @@ button:focus-visible {
   border-radius: 9999px;
   background: #171717;
   pointer-events: none;
+  max-width: 100%;
 }
 .nexa-dual-range input[type="range"] {
   position: absolute;
@@ -399,4 +446,122 @@ button:focus-visible {
 }
 .nexa-dual-range .nexa-range-max {
   z-index: 3;
+}
+
+/* Respect reduced motion — keep color/border hovers, drop transform-heavy micro-interactions */
+@media (prefers-reduced-motion: reduce) {
+  a.nexa-btn-solid-black:not(:disabled):hover,
+  a.nexa-btn-solid-black:not(:disabled):active,
+  button.nexa-btn-solid-black:not(:disabled):hover,
+  button.nexa-btn-solid-black:not(:disabled):active,
+  button.nexa-btn-outline-white:not(:disabled):hover,
+  button.nexa-btn-outline-white:not(:disabled):active,
+  button.nexa-btn-outline-subtle:not(:disabled):hover,
+  button.nexa-btn-outline-subtle:not(:disabled):active,
+  button.nexa-btn-ghost-light:not(:disabled):hover,
+  button.nexa-btn-ghost-light:not(:disabled):active,
+  button.nexa-btn-surface:not(:disabled):hover,
+  button.nexa-btn-surface:not(:disabled):active,
+  button.nexa-btn-surface-dark:not(:disabled):hover,
+  button.nexa-btn-surface-dark:not(:disabled):active,
+  button.nexa-btn-sidebar-row:not(:disabled):hover,
+  button.nexa-btn-sidebar-row:not(:disabled):active,
+  button.nexa-btn-sidebar-filter:not(:disabled):hover,
+  button.nexa-btn-sidebar-filter:not(:disabled):active,
+  button.nexa-btn-solid-black.nexa-btn-slow-hover:not(:disabled):hover,
+  button.nexa-btn-solid-black.nexa-btn-slow-hover:not(:disabled):active,
+  button.nexa-btn-solid-black.nexa-btn-card-buy:not(:disabled):hover,
+  button.nexa-btn-outline-subtle.nexa-btn-card-cart:not(:disabled):hover {
+    transform: none;
+  }
+}
+
+/* —— Nexa design system: search (nested black pill) + cart + suggestions —— */
+.nexa-search-shell {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  min-height: 2.75rem;
+  padding: 0.2rem 0.3rem 0.2rem 0.85rem;
+  border-radius: 9999px;
+  background: #ffffff;
+  border: 1px solid var(--nexa-border);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.nexa-search-shell--hero {
+  min-height: 3rem;
+  padding: 0.25rem 0.35rem 0.25rem 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+}
+
+.nexa-search-shell__btn {
+  margin: 2px 3px 2px 0 !important;
+  min-height: 2.35rem !important;
+  min-width: 6.5rem !important;
+}
+
+.nexa-search-shell--hero .nexa-search-shell__btn {
+  min-height: 2.5rem !important;
+}
+
+a.nexa-cart-pill {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  min-height: 2.75rem;
+  min-width: 2.75rem;
+  padding: 0 0.85rem;
+  border-radius: 9999px;
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  border: 1px solid #000000 !important;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none !important;
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+a.nexa-cart-pill:hover {
+  color: #ffffff !important;
+  transform: translateY(-1px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
+}
+
+.nexa-suggest-dropdown {
+  animation: nexa-dropdown-in 0.22s ease-out;
+}
+
+@keyframes nexa-dropdown-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nexa-suggest-dropdown {
+    animation: none;
+  }
+  a.nexa-cart-pill:hover {
+    transform: none;
+  }
+}
+
+/* Card CTAs — slightly wider touch targets */
+button.nexa-btn-solid-black.nexa-btn-card-buy {
+  min-width: 7.5rem !important;
+}
+
+button.nexa-btn-outline-subtle.nexa-btn-card-cart {
+  min-width: 7.5rem !important;
 }

@@ -178,7 +178,7 @@ export default function BestSellersCarousel({
           <div
             key={p.id}
             data-carousel-slide
-            className={`flex h-full min-h-0 min-w-0 shrink-0 snap-start transition duration-300 ease-out [will-change:transform] hover:z-[1] hover:scale-[1.02] ${
+            className={`flex h-full min-h-0 min-w-0 shrink-0 snap-start transition duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] [will-change:transform] hover:z-[1] hover:scale-[1.02] motion-reduce:transition-transform motion-reduce:hover:scale-100 ${
               // 1 + peek → 2 → 3 → 4 → 5 visible (width = scrollport %)
               "w-[min(20rem,calc(100%-1.25rem))] sm:w-[calc((100%-1rem)/2)] md:w-[calc((100%-2rem)/3)] lg:w-[calc((100%-3rem)/4)] xl:w-[calc((100%-4rem)/5)]"
             }`}

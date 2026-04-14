@@ -81,7 +81,7 @@ export function applyCatalogFilters(products, f, getBrandLabel) {
 export const INITIAL_CATALOG_FILTERS = {
   activeCategoryId: null,
   priceMin: 10,
-  priceMax: 172,
+  priceMax: 2000,
   bands: [],
   brands: [],
   colors: [],

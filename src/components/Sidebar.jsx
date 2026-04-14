@@ -167,7 +167,7 @@ const BEST_SELLERS = [
     rating: 5,
     reviews: 1200,
     image:
-      "https://images.pexels.com/photos/3780681/pexels-photo-3780681.jpeg?auto=compress&cs=tinysrgb&w=120&h=120&dpr=1",
+      "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=120&h=120&auto=format&fit=crop&q=80",
   },
   {
     id: "bs2",
@@ -177,7 +177,7 @@ const BEST_SELLERS = [
     rating: 4,
     reviews: 86,
     image:
-      "https://images.pexels.com/photos/1571458/pexels-photo-1571458.jpeg?auto=compress&cs=tinysrgb&w=120&h=120&dpr=1",
+      "https://images.unsplash.com/photo-1527443224154-c8a3942d3d1a?w=120&h=120&auto=format&fit=crop&q=80",
   },
   {
     id: "bs3",
@@ -187,7 +187,7 @@ const BEST_SELLERS = [
     rating: 4,
     reviews: 210,
     image:
-      "https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=120&h=120&dpr=1",
+      "https://images.unsplash.com/photo-1625948515291-4a4e2f6d0c1?w=120&h=120&auto=format&fit=crop&q=80",
   },
 ];
 
@@ -243,16 +243,21 @@ export default function Sidebar({ filters, onFiltersChange }) {
   const [showAllBrands, setShowAllBrands] = useState(false);
 
   const { priceMin, priceMax } = filters;
+  const visualMin = Math.max(0, Math.min(priceMin, PRICE_SLIDER_MAX));
+  const visualMax = Math.max(
+    visualMin + PRICE_GAP,
+    Math.min(priceMax, PRICE_SLIDER_MAX)
+  );
 
   const visibleCategories = showAllCategories
     ? PRODUCT_CATEGORIES
     : PRODUCT_CATEGORIES.slice(0, 6);
 
   const fillStyle = useMemo(() => {
-    const minP = (priceMin / PRICE_SLIDER_MAX) * 100;
-    const maxP = (priceMax / PRICE_SLIDER_MAX) * 100;
+    const minP = (visualMin / PRICE_SLIDER_MAX) * 100;
+    const maxP = (visualMax / PRICE_SLIDER_MAX) * 100;
     return { left: `${minP}%`, width: `${Math.max(maxP - minP, 0)}%` };
-  }, [priceMin, priceMax]);
+  }, [visualMin, visualMax]);
 
   const toggleBand = (id) => {
     const next = filters.bands.includes(id)
@@ -276,12 +281,12 @@ export default function Sidebar({ filters, onFiltersChange }) {
   };
 
   const onMinChange = (e) => {
-    const v = Math.min(Number(e.target.value), priceMax - PRICE_GAP);
+    const v = Math.min(Number(e.target.value), visualMax - PRICE_GAP);
     onFiltersChange({ ...filters, priceMin: Math.max(0, v) });
   };
 
   const onMaxChange = (e) => {
-    const v = Math.max(Number(e.target.value), priceMin + PRICE_GAP);
+    const v = Math.max(Number(e.target.value), visualMin + PRICE_GAP);
     onFiltersChange({ ...filters, priceMax: Math.min(PRICE_SLIDER_MAX, v) });
   };
 
@@ -290,7 +295,7 @@ export default function Sidebar({ filters, onFiltersChange }) {
 
   return (
     <aside className="nexa-filter-sidebar z-20 w-full lg:sticky lg:top-28 lg:self-start">
-      <div className="nexa-filter-scroll max-h-[min(100vh-6rem,940px)] overflow-y-auto rounded-xl border border-neutral-200/90 bg-white p-6 shadow-[0_1px_3px_rgba(0,0,0,0.06)] ring-1 ring-black/[0.04] sm:p-7">
+      <div className="nexa-filter-scroll rounded-2xl border border-neutral-200/80 bg-white p-6 shadow-[0_4px_24px_rgba(0,0,0,0.06)] ring-1 ring-black/[0.04] sm:p-7">
         {/* Product categories */}
         <section className="border-b border-neutral-100 pb-7">
           <SectionTitle>Product categories</SectionTitle>
@@ -351,7 +356,7 @@ export default function Sidebar({ filters, onFiltersChange }) {
           <p className="mt-1.5 text-sm text-neutral-500">
             Drag handles to set min and max.
           </p>
-          <div className="mt-5">
+          <div className="mt-5 rounded-xl border border-neutral-200 bg-neutral-50/70 p-3.5">
             <div className="nexa-dual-range">
               <div className="nexa-dual-range__track" aria-hidden />
               <div
@@ -363,7 +368,7 @@ export default function Sidebar({ filters, onFiltersChange }) {
                 type="range"
                 min={0}
                 max={PRICE_SLIDER_MAX}
-                value={priceMin}
+                value={visualMin}
                 onChange={onMinChange}
                 className="nexa-range-min"
                 aria-label="Minimum price"
@@ -372,19 +377,22 @@ export default function Sidebar({ filters, onFiltersChange }) {
                 type="range"
                 min={0}
                 max={PRICE_SLIDER_MAX}
-                value={priceMax}
+                value={visualMax}
                 onChange={onMaxChange}
                 className="nexa-range-max"
                 aria-label="Maximum price"
               />
             </div>
-            <p className="mt-3 text-center text-sm text-neutral-500">
-              Price range:{" "}
-              <span className="font-semibold text-neutral-900">
-                {formatINR(priceMin * USD_TO_INR)} —{" "}
-                {formatINR(priceMax * USD_TO_INR)}
-              </span>
-            </p>
+            <div className="mt-3 grid grid-cols-2 gap-2 text-xs">
+              <div className="rounded-lg border border-neutral-200 bg-white px-2.5 py-2 text-center">
+                <p className="text-[10px] font-semibold uppercase tracking-wide text-neutral-500">Min</p>
+                <p className="mt-0.5 font-bold text-neutral-900">{formatINR(priceMin * USD_TO_INR)}</p>
+              </div>
+              <div className="rounded-lg border border-neutral-200 bg-white px-2.5 py-2 text-center">
+                <p className="text-[10px] font-semibold uppercase tracking-wide text-neutral-500">Max</p>
+                <p className="mt-0.5 font-bold text-neutral-900">{formatINR(priceMax * USD_TO_INR)}</p>
+              </div>
+            </div>
           </div>
           <ul className="mt-5 space-y-3">
             {PRICE_BANDS.map((b) => (
@@ -480,7 +488,7 @@ export default function Sidebar({ filters, onFiltersChange }) {
           </div>
 
           {showAllBrands && (
-            <div className="mt-3 max-h-56 space-y-0.5 overflow-y-auto rounded-xl border border-neutral-100 bg-white p-2 pr-1">
+            <div className="mt-3 space-y-0.5 rounded-xl border border-neutral-100 bg-white p-2 pr-1">
               {MORE_BRANDS.map((b) => (
                 <BrandCheckboxRow
                   key={b.id}
